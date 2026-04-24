@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일본 모바일게임 시장 주요 게임 장르</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7}
+
+/* Cover */
+.cover{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(135deg,#0a0e27 0%,#1a1e3a 40%,#2d1b4e 70%,#1a0e2e 100%);
+  position:relative;overflow:hidden;padding:60px 20px}
+.cover::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 50%,rgba(99,102,241,.15),transparent 60%),
+  radial-gradient(circle at 70% 30%,rgba(168,85,247,.1),transparent 50%)}
+.cover h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-1px;
+  background:linear-gradient(135deg,#fff 0%,#c4b5fd 50%,#818cf8 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:1}
+.cover .sub{margin-top:16px;font-size:1.1rem;color:rgba(255,255,255,.5);position:relative;z-index:1}
+
+/* Container */
+.container{max-width:960px;margin:0 auto;padding:40px 20px 80px}
+
+/* Section */
+.section{margin-bottom:20px;border-radius:12px;overflow:hidden;
+  background:#1a1d2e;border:1px solid rgba(255,255,255,.06);transition:border-color .3s}
+.section:hover{border-color:rgba(99,102,241,.3)}
+
+.section-header{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+  user-select:none;position:relative}
+.section-header::after{content:'';position:absolute;right:24px;top:50%;
+  border:solid rgba(255,255,255,.4);border-width:0 2px 2px 0;padding:5px;
+  transform:translateY(-50%) rotate(45deg);transition:transform .3s}
+.section.open .section-header::after{transform:translateY(-50%) rotate(-135deg)}
+
+.badge{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6)}
+.section-title{font-size:1.15rem;font-weight:700;color:#fff}
+.section-summary{font-size:.85rem;color:rgba(255,255,255,.45);margin-top:2px}
+
+.section-body{display:none;padding:0 24px 28px;animation:fadeIn .3s ease}
+.section.open .section-body{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Content blocks */
+.overview-block,.gameplay-block{margin-top:20px}
+.block-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;
+  color:#818cf8;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.desc{font-size:.95rem;color:rgba(255,255,255,.75);margin-bottom:16px}
+.bm-box{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.15);border-radius:8px;
+  padding:14px 18px;margin-bottom:16px}
+.bm-box .label{font-size:.75rem;font-weight:700;color:#a5b4fc;margin-bottom:4px}
+.bm-box .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.bm-box .tag{background:rgba(99,102,241,.2);color:#c4b5fd;padding:2px 10px;border-radius:12px;font-size:.8rem}
+.bm-box .detail{font-size:.85rem;color:rgba(255,255,255,.6)}
+
+.titles-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.titles-row{grid-template-columns:1fr}}
+.title-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;
+  padding:12px;text-align:center}
+.title-card img{width:100%;border-radius:6px;margin-bottom:8px}
+.title-card .name{font-size:.9rem;font-weight:700;color:#fff}
+.title-card .meta{font-size:.78rem;color:rgba(255,255,255,.45)}
+
+.gameplay-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.gameplay-grid{grid-template-columns:1fr}}
+.gameplay-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;
+  padding:12px}
+.gameplay-card video{width:100%;border-radius:6px;margin-bottom:8px}
+.gameplay-card .name{font-size:.9rem;font-weight:700;color:#fff}
+.gameplay-card .meta{font-size:.78rem;color:rgba(255,255,255,.45)}
+
+footer{text-align:center;padding:40px 20px;color:rgba(255,255,255,.25);font-size:.8rem}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div>
+    <h1>일본 모바일게임 시장<br>주요 게임 장르</h1>
+    <div class="sub">6 Genres &middot; Market Overview &amp; Gameplay Reference</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 1. RPG -->
+<div class="section open" data-idx="1">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">01</div>
+    <div>
+      <div class="section-title">RPG</div>
+      <div class="section-summary">역할 수행 캐릭터를 육성하여 전투를 진행하는 장르</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        Role Playing Game(역할 수행 게임)의 준말이다. 직업, 역할이 부여된 캐릭터를 조작, 육성하여 전투를 진행하고, 보다 수월한 전투를 위해 캐릭터 성장 플레이가 병행되는 것이 특징이다. 캐릭터가 턴을 번갈아 행동하는 턴제 RPG와 실시간 전투가 진행되는 액션 RPG로 세부 장르가 나뉜다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">가챠</span><span class="tag">시즌 패스</span></div>
+        <div class="detail">신규 캐릭터를 획득하는 가챠와, 해당 캐릭터의 성능을 강화하는 보조 상품 구매에서 대부분의 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image2.jpeg" alt="SD건담 G 제네레이션 이터널">
+          <div class="name">SD건담 G 제네레이션 이터널</div>
+          <div class="meta">Bandai Namco &middot; 2025년 &middot; 턴제 RPG</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image1.png" alt="젠레스 존 제로">
+          <div class="name">젠레스 존 제로</div>
+          <div class="meta">Hoyoverse &middot; 2024년 &middot; 액션 RPG</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image4.mp4" type="video/mp4">
+          </video>
+          <div class="name">SD건담 G 제네레이션 이터널</div>
+          <div class="meta">Bandai Namco &middot; 2025년 &middot; 일본 누적 매출 $1.8억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image3.mp4" type="video/mp4">
+          </video>
+          <div class="name">젠레스 존 제로</div>
+          <div class="meta">Hoyoverse &middot; 2024년 &middot; 일본 누적 매출 $1.3억</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 스포츠 -->
+<div class="section" data-idx="2">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">02</div>
+    <div>
+      <div class="section-title">스포츠</div>
+      <div class="section-summary">실제 스포츠 경기 룰을 기반으로 한 게임 장르</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        야구, 축구 등 실제 스포츠 경기 룰과 시스템을 배경으로 하는 게임이다. 선수를 직접 조작하거나 구단을 운영하여 다른 유저를 경기에서 이기는 것이 핵심 플레이다. 실존 리그와 선수 데이터를 활용하므로 IP 라이선스 확보가 장르의 핵심 경쟁력이다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">가챠</span><span class="tag">시즌 패스</span></div>
+        <div class="detail">고능력치 선수를 영입해 구단 경쟁력을 높이기 위한 가챠 상품 구매에서 대부분의 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image6.png" alt="eFootball">
+          <div class="name">eFootball</div>
+          <div class="meta">Konami &middot; 2017년 &middot; 축구</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image5.png" alt="プロ野球スピリッツＡ">
+          <div class="name">プロ野球スピリッツＡ</div>
+          <div class="meta">Konami &middot; 2015년 &middot; 야구</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image8.mp4" type="video/mp4">
+          </video>
+          <div class="name">eFootball</div>
+          <div class="meta">Konami &middot; 2017년 &middot; 일본 누적 매출 $7억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image7.mp4" type="video/mp4">
+          </video>
+          <div class="name">プロ野球スピリッツＡ</div>
+          <div class="meta">Konami &middot; 2015년 &middot; 일본 누적 매출 $20억</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. 4X -->
+<div class="section" data-idx="3">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">03</div>
+    <div>
+      <div class="section-title">4X</div>
+      <div class="section-summary">탐험, 확장, 개발, 전투의 4요소로 구성된 전략 장르</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        Exploration, Expansion, Exploitation, Extermination의 네 요소로 구성된 장르라 하여 4X로 불린다. 맵 탐험과 세력 확장, 자원 개발을 통해 다른 유저와의 전투에서 승리하는 것이 목표다. 다른 유저들과 우호 세력(길드, 연맹)을 형성해 적대 세력과 장기간 경쟁하는 양상으로 게임이 진행된다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">가챠</span><span class="tag">시간 단축</span></div>
+        <div class="detail">세력의 전투력을 높이는 영웅 캐릭터 모집 가챠와, 건축/회복/부대 이동 시간을 줄여 주는 시간 단축 아이템 구매에서 대부분의 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image10.png" alt="라스트 워: 서바이벌">
+          <div class="name">라스트 워: 서바이벌</div>
+          <div class="meta">First Fun &middot; 2023년 &middot; 4X</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image9.png" alt="WOS: 화이트아웃 서바이벌">
+          <div class="name">WOS: 화이트아웃 서바이벌</div>
+          <div class="meta">Century Games &middot; 2023년 &middot; 4X</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image12.mp4" type="video/mp4">
+          </video>
+          <div class="name">라스트 워: 서바이벌</div>
+          <div class="meta">First Fun &middot; 2023년 &middot; 일본 누적 매출 $5억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image11.mp4" type="video/mp4">
+          </video>
+          <div class="name">WOS: 화이트아웃 서바이벌</div>
+          <div class="meta">Century Games &middot; 2024년 &middot; 일본 누적 매출 $3억</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. 슈팅 -->
+<div class="section" data-idx="4">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">04</div>
+    <div>
+      <div class="section-title">슈팅</div>
+      <div class="section-summary">총기를 활용한 배틀로얄 중심의 PvP 장르</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        총기를 활용한 전투가 주된 게임플레이다. 유저 간 경쟁을 통해 최후의 1인을 가리는 배틀로얄이 모바일에서 가장 지배적인 세부 장르다. 짧은 세션 단위의 매칭 PvP 구조로, 한 판 플레이가 20분 내외에 완결된다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">가챠</span><span class="tag">시즌 패스</span></div>
+        <div class="detail">캐릭터, 총기 외형을 변경할 수 있는 아이템이 포함된 가챠에서 대부분의 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image14.png" alt="황야행동(Knives Out)">
+          <div class="name">황야행동 (Knives Out)</div>
+          <div class="meta">NetEase &middot; 2017년 &middot; 배틀로얄</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image13.png" alt="PUBG: Mobile">
+          <div class="name">PUBG: Mobile</div>
+          <div class="meta">Krafton &middot; 2018년 &middot; 배틀로얄</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image16.mp4" type="video/mp4">
+          </video>
+          <div class="name">PUBG: Mobile</div>
+          <div class="meta">Krafton &middot; 2018년 &middot; 일본 누적 매출 $3억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image15.mp4" type="video/mp4">
+          </video>
+          <div class="name">Call of Duty: Mobile</div>
+          <div class="meta">Activision &middot; 2019년 &middot; 일본 누적 매출 $2200만</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 매치3 & 머지 -->
+<div class="section" data-idx="5">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">05</div>
+    <div>
+      <div class="section-title">매치 3 &amp; 머지</div>
+      <div class="section-summary">캐주얼 게임의 대표 장르 - 블록 매칭과 아이템 합성</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        캐주얼 게임의 대표 장르다. 3매치: 동일한 모양의 블록을 3개 이상 정렬해 터뜨리며 스테이지를 클리어하는 게임이다. 머지: 동일한 모양의 아이템을 합쳐 상위 아이템을 생성하고, 이를 납품하여 스토리를 진행하는 게임이다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">이어하기</span><span class="tag">시간 단축</span></div>
+        <div class="detail">3매치: 정해진 턴 내 스테이지를 클리어하지 못했을 때, 재화를 지불해 추가 턴을 구매하는 데서 매출이 발생한다. 머지: 제작에 상당한 시간이 소요되는 아이템을 즉시 생성할 수 있는 기회를 구매하는 데서 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image18.png" alt="로얄 매치">
+          <div class="name">로얄 매치</div>
+          <div class="meta">Dream Games &middot; 2021년 &middot; 매치 3</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image17.png" alt="가십 하버: 머지 & 스토리">
+          <div class="name">가십 하버: 머지 &amp; 스토리</div>
+          <div class="meta">Microfun &middot; 2022년 &middot; 머지</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image20.mp4" type="video/mp4">
+          </video>
+          <div class="name">Royal Match</div>
+          <div class="meta">Dream Games &middot; 2021년 &middot; 일본 누적 매출 $3억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image19.mp4" type="video/mp4">
+          </video>
+          <div class="name">가십 하버: 머지 &amp; 스토리</div>
+          <div class="meta">MicroFun &middot; 2022년 &middot; 일본 누적 매출 $9200만</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. TCG -->
+<div class="section" data-idx="6">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="badge">06</div>
+    <div>
+      <div class="section-title">TCG</div>
+      <div class="section-summary">오프라인 카드 게임의 모바일 이식 장르</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="overview-block">
+      <div class="block-label">Genre Overview</div>
+      <div class="desc">
+        오프라인 카드 게임의 포맷을 모바일로 이식한 장르다. 카드를 구매하여 덱을 구성하고, 해당 덱으로 상대를 이기는 것이 기본 목표다. 신규 카드 팩의 주기적 출시가 장기 매출의 핵심 동력이다.
+      </div>
+      <div class="bm-box">
+        <div class="label">주요 BM / Business Model</div>
+        <div class="tags"><span class="tag">가챠</span></div>
+        <div class="detail">덱 구성을 위한 카드를 뽑는 가챠에서 대부분의 매출이 발생한다.</div>
+      </div>
+      <div class="titles-row">
+        <div class="title-card">
+          <img src="media/image22.png" alt="Pokemon TCG Pocket">
+          <div class="name">Pokemon TCG Pocket</div>
+          <div class="meta">The Pokemon Company &middot; 2024년 &middot; TCG</div>
+        </div>
+        <div class="title-card">
+          <img src="media/image21.png" alt="Shadowverse">
+          <div class="name">Shadowverse</div>
+          <div class="meta">CyberAgent &middot; 2025년 &middot; TCG</div>
+        </div>
+      </div>
+    </div>
+    <div class="gameplay-block">
+      <div class="block-label">Gameplay Reference</div>
+      <div class="gameplay-grid">
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image24.mp4" type="video/mp4">
+          </video>
+          <div class="name">Pokemon TCG Pocket</div>
+          <div class="meta">The Pokemon Company &middot; 2024년 &middot; 일본 누적 매출 $4억</div>
+        </div>
+        <div class="gameplay-card">
+          <video autoplay loop muted playsinline>
+            <source src="media/image23.mp4" type="video/mp4">
+          </video>
+          <div class="name">Shadowverse: Worlds Beyond</div>
+          <div class="meta">CyberAgent &middot; 2025년 &middot; 일본 누적 매출 $6500만</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  일본 모바일게임 시장 주요 게임 장르 &middot; 2025
+</footer>
+
+<script>
+function toggleSection(header) {
+  const section = header.parentElement;
+  section.classList.toggle('open');
+  // Pause/play videos based on visibility
+  const videos = section.querySelectorAll('video');
+  if (section.classList.contains('open')) {
+    videos.forEach(v => v.play().catch(() => {}));
+  } else {
+    videos.forEach(v => v.pause());
+  }
+}
+// Only autoplay videos in open sections
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.section:not(.open) video').forEach(v => v.pause());
+});
+</script>
+</body>
+</html>
